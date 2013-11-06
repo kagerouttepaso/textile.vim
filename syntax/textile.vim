@@ -47,6 +47,7 @@ syn match txtListNumber  /\v^#+ /
 syn match txtListNumber2  /\v^(##)+ /
 
 syn region txtCodeblock start="^bc\(([^)]*)\|{[^}]*}\|\[[^]]*\]\|[<>=()]\)*\. " end="^$"
+syn region txtCodeblock start="<pre>" end="<\/pre>"
 syn region txtBlockquote start="^bq\(([^)]*)\|{[^}]*}\|\[[^]]*\]\|[<>=()]\)*\. " end="^$"
 syn region txtParagraph start="^bq\(([^)]*)\|{[^}]*}\|\[[^]]*\]\|[<>=()]\)*\. " end="^$"
 
