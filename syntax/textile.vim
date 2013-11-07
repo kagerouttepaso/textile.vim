@@ -53,6 +53,9 @@ syn region txtParagraph start="^bq\(([^)]*)\|{[^}]*}\|\[[^]]*\]\|[<>=()]\)*\. " 
 
 syn cluster txtBlockElement contains=txtHeader,txtBlockElement,txtFootnoteDef,txtListBullet,txtListNumber
 
+syn match  txtElements /[^| ]*/ contained
+syn region  txtTable start=/|/ end=/|$/  contains=txtElements
+
 
 " Everything after the first colon is from RFC 2396, with extra
 " backslashes to keep vim happy...  Original:
@@ -72,6 +75,8 @@ if version >= 508 || !exists("did_txt_syn_inits")
         command -nargs=+ HiLink hi def link <args>
     endif
 
+    HiLink txtElements Constant
+    HiLink txtTable Statement
     HiLink txtHeader Title
     HiLink txtHeader2 Question
     HiLink txtHeader3 Statement
